@@ -10,6 +10,7 @@
 #include "allera.h"
 #include "poserobjet.h"
 #include "attendre.h"
+#include "rotation.h"
 using namespace std;
 
 int main() {
@@ -70,9 +71,17 @@ int main() {
         }
 
         else if (commande == "ATTENDRE_2") {
-        plan.ajouter(new Attendre(2));
-        journal.seekp(0, ios::end);
-        journal<<commande<<endl;
+            plan.ajouter(new Attendre(2));
+            journal.seekp(0, ios::end);
+            journal<<commande<<endl;
+        }
+
+        else if (commande == "ROTATION") {
+            int angleRobot;
+            fichier >> angleRobot;
+            plan.ajouter(new Rotation(angleRobot));
+            journal.seekp(0, ios::end);
+            journal<<commande<<endl;
         }
 
         else {
