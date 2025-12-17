@@ -50,12 +50,17 @@ void ContexteRobot::fermerPince() {
     }
 }
 
-void ContexteRobot::attendre(int p_duree){
+void ContexteRobot::attendre(int p_duree) {
     std::this_thread::sleep_for(std::chrono::seconds(p_duree));
+}
+
+void ContexteRobot::rotation(int p_angle) {
+    m_angle_robot = p_angle;
 }
 
 // Affichage
 void ContexteRobot::afficherPosition() {
     std::cout << "Position : (" << m_x << ", " << m_y << ", " << m_z << ")";
     std::cout << " | Pince " << (m_pince_ouverte ? "ouverte" : "fermee") << std::endl;
+    std::cout << " | Angle : " << m_angle_robot << " degres " << std::endl;
 }
