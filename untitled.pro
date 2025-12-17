@@ -13,6 +13,7 @@ SOURCES += \
         main.cpp \
         ouvrirpince.cpp \
         poserobjet.cpp \
+        rotation.cpp \
         sequenceactions.cpp
 
 HEADERS += \
@@ -24,4 +25,5 @@ HEADERS += \
     fermerpince.h \
     ouvrirpince.h \
     poserobjet.h \
+    rotation.h \
     sequenceactions.h
