@@ -1,6 +1,9 @@
-DEPLACER
+===== JOURNAL D'ACTIONS =====
+Format : Action + parametres
+=============================
+Action executee : DEPLACER | dx=10 mm, dy=0 mm, dz=0 mm
 OUVRIR_PINCE
-ROTATION
+Action executee : ROTATION | angle=90 degrés
 FERMER_PINCE
-ROTATION
-DEPLACER
+Action executee : ROTATION | angle=45 degrés
+Action executee : DEPLACER | dx=0 mm, dy=0 mm, dz=-20 mm
