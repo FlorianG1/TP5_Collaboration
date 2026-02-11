@@ -25,8 +25,10 @@ int main() {
     }
 
     ofstream journal("data/journal.txt");
+    journal.seekp(0, ios::end);
+    journal << "===== JOURNAL D'ACTIONS =====\n" << "Format : Action + parametres\n" << "=============================\n";
     if (!fichier.is_open()) {
-        cout << "Erreur : impossible d'ouvrir le fichier journal.txt " << endl;
+        cerr << "Erreur : impossible d'ouvrir le fichier journal.txt " << endl;
         return 1;
     }
 
@@ -39,7 +41,7 @@ int main() {
             fichier >> dx >> dy >> dz;
             plan.ajouter(new Deplacer(dx, dy, dz));
             journal.seekp(0, ios::end);
-            journal << commande << endl;
+            journal << "Action executee : " << commande << " | dx=" << dx << " mm, dy=" << dy <<" mm, dz=" << dz <<" mm" << endl;
         }
 
         else if (commande == "OUVRIR_PINCE") {
@@ -67,13 +69,13 @@ int main() {
             fichier >> dx >> dy >> dz;
             plan.ajouter(new AllerA(dx, dy, dz));
             journal.seekp(0, ios::end);
-            journal << commande << endl;
+            journal << "Action executee : " << commande << " | dx=" << dx << " mm, dy=" << dy <<" mm, dz=" << dz <<" mm" << endl;
         }
 
         else if (commande == "ATTENDRE_2") {
             plan.ajouter(new Attendre(2));
             journal.seekp(0, ios::end);
-            journal<<commande<<endl;
+            journal<< "Action executee : " << commande << " | durée=" << 2 << " ms"  << endl;
         }
 
         else if (commande == "ROTATION") {
@@ -81,7 +83,7 @@ int main() {
             fichier >> angleRobot;
             plan.ajouter(new Rotation(angleRobot));
             journal.seekp(0, ios::end);
-            journal<<commande<<endl;
+            journal<< "Action executee : " << commande << " | angle=" << angleRobot << " degrés"  << endl;
         }
 
         else {
